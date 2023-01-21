@@ -1,15 +1,10 @@
 #include <stdio.h>
 int main(void)
 {
-  int year;
-
-  printf("year = ");
-  scanf("%d", &year);
-
-  if(year % 4 == 0) {
-    printf("%d年はうるう年です！\n", year);
-  }else{
-    printf("%d年はうるう年ではありません！\n", year);
+  int count;
+  for (count = 1; count <= 3; count = count + 1){
+    printf("%d",count);
+    printf(" こんにちは\n");
   }
   return 0;
 }
