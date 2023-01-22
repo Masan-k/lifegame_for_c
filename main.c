@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <time.h>
 #include <unistd.h>
+#include <string.h>
 int getNextCell(int r,int c,int cell[10][10]){
 
   int cellL,cellR,cellU,cellD;
@@ -129,24 +130,21 @@ int main(void)
           }
         }
       }
-      //char offValue[] = '□';
-      //char onValue[] = '■';
-      //char rowValue[100];
-
       for(row=0; row<10; row++){
+        char writeRow[256] = "";
         for(col=0; col<10; col++){
-          //if(newCell[row][col] == 0){
-            //writeCell[] = writeCell[] + '□';
-          //}else{
-            //writeCell[] = writeCell[] + '■';
-          //}
-          printf("%d",newCell[row][col]);
+          if(newCell[row][col] == 0){
+            strcat(writeRow,"□");
+          }else if(newCell[row][col] == 1){
+            strcat(writeRow,"■");
+          }else{
+            strcat(writeRow,"●");
+          }
+          //printf("%d",newCell[row][col]);
           cell[row][col] = newCell[row][col];
         }
-        printf("\n");
-        //printf("%s\n",writeCell);
+        printf("%s\n",writeRow);
       }
-
     }
   }
   return 0;
